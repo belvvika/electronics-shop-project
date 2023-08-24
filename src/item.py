@@ -49,8 +49,10 @@ class Item:
         '''
         Возвращает число из числа-строки
         '''
-        numbers = number.split('.')
-        return int(number[0])
+        try:
+            return int(float(number))
+        except ValueError:
+            raise ValueError('Эта строка не содержит число.')
     @property
     def name(self):
         return self.__name
