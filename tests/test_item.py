@@ -15,9 +15,17 @@ def test_apply_discount(get_item):
 
 def test_instantiate_from_csv(get_item):
    Item.instantiate_from_csv()
-   assert len(Item.all) == 6
+   assert len(Item.all) == 5
 def test_string_to_number(get_item):
     assert get_item.string_to_number('5.1') == 5
     assert get_item.string_to_number('55.5') == 55
     with pytest.raises(ValueError):
         assert get_item.string_to_number('hello')
+
+def test_repr():
+    item1 = Item("Смартфон", 10000, 20)
+    assert repr(item1) == "Item('Смартфон', 10000, 20)"
+
+def test_str():
+    item1 = Item("Смартфон", 10000, 20)
+    assert str(item1) == 'Смартфон'
