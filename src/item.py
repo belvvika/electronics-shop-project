@@ -1,4 +1,7 @@
 import csv
+import os.path
+
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -19,6 +22,11 @@ class Item:
         self.quantity = quantity
         Item.all.append(self)
 
+    def __repr__(self):
+        return f'Item(\'{self.name}\', {self.price}, {self.quantity})'
+
+    def __str__(self):
+        return self.__name
     def calculate_total_price(self) -> float:
         """
         Рассчитывает общую стоимость конкретного товара в магазине.
@@ -39,7 +47,8 @@ class Item:
         '''
         Инициализирует экземпляры класса Item данными из файла src/items.csv
         '''
-        with open('../src/items.csv') as csvfile:
+        cls.all.clear()
+        with open(os.path.dirname(__file__)+'\items.csv') as csvfile:
             reader = csv.DictReader(csvfile, delimiter=",")
             for row in reader:
                 item = cls(row['name'], row['price'], row['quantity'])
