@@ -1,7 +1,8 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
 import pytest
 
-from src.item import Item, Phone
+from src.item import Item
+from src.phone import Item
 def test_init_item(get_item):
     assert get_item
 

@@ -1,5 +1,5 @@
 import pytest
-from src.item import Phone
+from src.phone import Phone
 def test_init_phone(get_phone):
     assert str(get_phone) == 'hello'
 
