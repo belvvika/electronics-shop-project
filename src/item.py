@@ -22,6 +22,14 @@ class Item:
         self.quantity = quantity
         Item.all.append(self)
 
+    def __add__(self, other):
+        """
+        Складывает экземляры класса
+        """
+        if not isistance(other, Item):
+            raise ValueError
+        return self.quantity + other.quantity
+
     def __repr__(self):
         return f'Item(\'{self.name}\', {self.price}, {self.quantity})'
 
