@@ -2,7 +2,7 @@
 import pytest
 
 from src.item import Item
-from src.phone import Item
+from src.phone import Phone
 def test_init_item(get_item):
     assert get_item
 
