@@ -8,4 +8,4 @@ def get_Item():
 
 @pytest.fixture
 def get_Phone():
-    return Item('hello', 100, 5, 4)
+    return Phone('hello', 100, 5, 4)
