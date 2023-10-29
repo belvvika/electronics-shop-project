@@ -26,7 +26,7 @@ class Item:
         """
         Складывает экземляры класса
         """
-        if not isistance(other, Item):
+        if not isinstance(other, Item):
             raise ValueError
         return self.quantity + other.quantity
 
@@ -56,7 +56,7 @@ class Item:
         Инициализирует экземпляры класса Item данными из файла src/items.csv
         '''
         cls.all.clear()
-        with open(os.path.dirname(__file__)+'\items.csv') as csvfile:
+        with open(os.path.join(os.path.dirname(__file__),'items.csv')) as csvfile:
             reader = csv.DictReader(csvfile, delimiter=",")
             for row in reader:
                 item = cls(row['name'], row['price'], row['quantity'])
