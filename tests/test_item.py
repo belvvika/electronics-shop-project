@@ -17,6 +17,15 @@ def test_apply_discount(get_item):
 def test_instantiate_from_csv(get_item):
    Item.instantiate_from_csv()
    assert len(Item.all) == 5
+
+def test_instantiate_from_csv_error():
+    with pytest.raises(FileNotFoundError):
+        Item.instantiate_from_csv()
+
+def test_instantiate_from_csv_damaged():
+    with pytest.raises(InstantiateCSVError):
+        Item.instantiate_from_csv()
+
 def test_string_to_number(get_item):
     assert get_item.string_to_number('5.1') == 5
     assert get_item.string_to_number('55.5') == 55
